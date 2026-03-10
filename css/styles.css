@@ -683,7 +683,7 @@ input[type="checkbox"]:checked+.custom-checkbox .checkbox-icon {
         line-height: 1.17;
         letter-spacing: 0.04em;
         color: #8E8F99;
-        margin-bottom: 4px;
+    
     }
           
 .form-field.comment {
@@ -782,5 +782,5 @@ input:focus::placeholder {
     display: flex;
         flex-direction: column;
         gap: 4px;
-        margin-bottom: 8px;
+       
 }
