@@ -448,7 +448,14 @@ h1, h2, h3, h4, h5, h6, p {
 .footer-container {
     display: flex;
     align-items: baseline;
-    gap: 120px;
+}
+
+.left-side {
+    margin-right: 120px;
+}
+
+.right-side {
+    margin-right: 80px;
 }
 
 .socials {
@@ -489,17 +496,16 @@ h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 16px;
 }
 
-.register form {
+.register {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 16px;
 }
-.register .form-row {
+
+.register-form {
     display: flex;
+    flex-direction: row;
     gap: 24px;
-    align-items: flex-end;
+    align-items: center;
 }
 .button-register {
     border-radius: 4px;
@@ -520,7 +526,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .button-register:hover,
 .button-register:focus {
-    background-color: #404BBF;          
+    background-color: #31d0aa;
 }
 .modal-overlay {
     position: fixed;
@@ -533,7 +539,7 @@ h1, h2, h3, h4, h5, h6, p {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -544,7 +550,6 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .modal {
     background-color: #FCFCFC;
-    padding: 72px 24px;
     border-radius: 4px;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16),
@@ -553,6 +558,8 @@ h1, h2, h3, h4, h5, h6, p {
     max-height: 584px;
     overflow-y: auto;
     position: relative;
+            padding: 72px 24px 24px 24px;
+    
 }
 .modal-close-button {
     position: absolute;
@@ -569,8 +576,9 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .modal-close-button:hover,
 .modal-close-button:focus {
-    background-color: #E7E9FC;
-    border-color: rgba(0, 0, 0, 0.2);
+    background-color: #404bbf;
+    border-color: #404bbf;
+    fill: #ffffff;
 }
 
 h3 {
@@ -587,6 +595,66 @@ input, textarea, button {
     font-family: inherit;
     line-height: inherit;
 }
+
+textarea {
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    padding: 8px 16px;
+    resize: none;
+    outline: none;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
+}
+
+textarea:focus {
+    border-color: #4D5AE5;
+}
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: #8E8F99;
+    margin-bottom: 24px;
+}
+
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    fill: transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkbox-icon {
+    fill: transparent;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="checkbox"]:checked+.custom-checkbox {
+    background-color: #404BBF;
+    border-color: #404BBF;
+    fill: #F4F4FD;
+}
+
+input[type="checkbox"]:checked+.custom-checkbox .checkbox-icon {
+    fill: #F4F4FD;
+}
 .form-input {
     padding: 4px;
     color: #212121;
@@ -596,14 +664,27 @@ input, textarea, button {
         height: 40px;
 }
 .form-input-register {
-    padding: 4px;
-    color: #212121;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    width: 264px;
+    height: 40px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding-left: 16px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input-register:focus {
+    border-color: #31d0aa;
+    outline: none;
 }
 .form-label {
-    display: flex;
-    flex-direction: column;
-} 
+   
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
 
 .input {
         padding: 4px;
@@ -647,11 +728,16 @@ input:focus::placeholder {
 }
 
 .input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    fill: #2e2f42;
+    
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            fill: #2e2f42;
+            transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-wrapper:focus-within .input-icon {
+    fill: #4D5AE5;
 }
 .form-input-register {
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -661,4 +747,8 @@ input:focus::placeholder {
     background-color: transparent;
     color: #FFFFFF;
     padding-left: 16px;
+}
+
+.form-input-register::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
