@@ -396,7 +396,7 @@
     </main>
 
     <footer class="footer">
-      < class="container footer-container">
+      <div class="container footer-container">
         <div class="left-side">
           <a href="./index.html" class="logo-footer">
             <span class="logo-accent">WEB</span>STUDIO
@@ -442,10 +442,20 @@
         </div>
         <div class="register">
           <form>
-            <label>Subscribe 
-              <input type="email" name="email" placeholder="E-mail"/></label>
-              <button type="submit" class="button-register">Subscribe</button>
-            </form>
+            <label>
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+              />Subscribe</label
+            >
+
+            <button type="submit" class="button-register">
+              <svg width="24" height="24">
+                <use href="./images/icons.svg#email-sign"></use>
+              </svg>
+            </button>
+          </form>
         </div>
       </div>
     </footer>
@@ -479,9 +489,18 @@
               name="comment"
               rows="7"
               placeholder="Text input"
+              id="comment"
             ></textarea>
           </label>
-
+          <label>
+            <input
+              type="checkbox"
+              name="privacy-policy"
+              value="I accept the terms and conditions of the Privacy Policy"
+            />
+            I accept the terms and conditions of the
+            <span class="form-link">Privacy Policy</span>
+          </label>
           <button type="submit" class="button form-button">Send</button>
         </form>
       </div>
