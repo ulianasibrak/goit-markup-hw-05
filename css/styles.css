@@ -20,8 +20,6 @@ body {
 .page-header .container {
     display: flex;
     align-items: center;
-    padding-top: 24px;
-        padding-bottom: 24px;
 }
 
 .logo {
@@ -546,7 +544,7 @@ h1, h2, h3, h4, h5, h6, p {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -636,7 +634,7 @@ textarea:focus {
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: #8E8F99;
-    margin-bottom: 24px;
+    padding-bottom: 8px;
 }
 
 .custom-checkbox {
@@ -654,16 +652,13 @@ textarea:focus {
         fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.checkbox-icon {
+.checkbox-icon,
+.checkbox-icon * {
     fill: transparent;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input[type="checkbox"]:checked+.custom-checkbox {
-    background-color: #404BBF;
-    border-color: #404BBF;
-    fill: #F4F4FD;
-}
+
 
 input[type="checkbox"]:checked+.custom-checkbox .checkbox-icon {
     fill: #F4F4FD;
@@ -675,6 +670,11 @@ input[type="checkbox"]:checked+.custom-checkbox .checkbox-icon {
     border-radius: 4px;
         width: 360px;
         height: 40px;
+}
+.modal .form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .form-label {
@@ -760,6 +760,7 @@ input:focus::placeholder {
             border-radius: 4px;
             width: 264px;
             height: 40px;
+            
             background-color: transparent;
             color: #FFFFFF;
             padding-left: 16px;
@@ -786,11 +787,13 @@ input:focus::placeholder {
        
 }
 
+
 .form-button {
     display: block;
     margin: 0 auto;
     min-width: 169px;
     height: 56px;
+    
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
